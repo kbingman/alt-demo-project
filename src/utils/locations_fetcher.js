@@ -23,7 +23,7 @@ var LocationsFetcher = {
             setTimeout(function () {
                 // resolve with some mock data
                 resolve(mockData);
-            }, 2000);
+            }, 500);
         });
     }
 };

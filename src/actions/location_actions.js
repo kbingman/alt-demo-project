@@ -3,17 +3,17 @@ import LocationsFetcher from '../utils/locations_fetcher'
 
 class LocationActions {
 
-    checkBootstrap(locations) {
-        if (locations) {
-            console.log('checkBootstrap');
-            this.actions.updateLocations(locations);
-            return;
-        }
-        this.actions.fetchLocations();
-    }
+    // checkBootstrap(locations) {
+    //     if (locations) {
+    //         console.log('checkBootstrap');
+    //         this.actions.updateLocations(locations);
+    //         return;
+    //     }
+    //     this.actions.fetchLocations();
+    // }
 
     updateLocations(locations) {
-        console.log(+new Date())
+        console.log(+new Date());
         this.dispatch(locations);
     }
 

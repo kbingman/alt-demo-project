@@ -6,29 +6,33 @@ import LocationActions from '../actions/location_actions';
 
 var Locations = React.createClass({
 
+    // Fired when the component is created
     getInitialState() {
-        LocationActions.updateLocations(this.props.locations);
         return LocationStore.getState();
     },
 
+    // Fired just before the component is mounted
     componentWillMount() {
         // Checks for server side or client rendering
-        if (ExecutionEnvironment.canUseDOM && typeof('bootstrapData') !== 'undefined') {
+        // This is needed, because react expects a document element
+        if (ExecutionEnvironment.canUseDOM) {
             LocationStore.listen(this.onChange);
-            LocationActions.checkBootstrap(bootstrapData.locations);
         }
     },
 
+    // Fired just before the component is unmounted
     componentWillUnmount() {
         if (ExecutionEnvironment.canUseDOM) {
             LocationStore.unlisten(this.onChange);
         }
     },
 
+    // updates the state when changed, which then triggers a render
     onChange(state) {
         this.setState(state);
     },
 
+    // This is triggered when the button is clicked
     update () {
         LocationActions.fetchLocations();
     },
@@ -40,25 +44,22 @@ var Locations = React.createClass({
     },
 
     render() {
+        // Error Messaging
         if (this.state.errorMessage) {
             return (
                 <div>Something is wrong</div>
             );
         }
 
+        // Add the loading overlay here
         if (this.state.loading ) {
             console.log('loading');
-            // <img src="/my-cool-spinner.gif" />
-            // return (
-            //     <div>
-            //         <button onClick={ this.update }>Update</button>
-            //     </div>
-            // )
         }
 
+        // Main Rendering
         return (
             <div>
-                <h1>Hey there Hanna!</h1>
+                <h1>React / Alt Demo</h1>
                 <ul>
                     { this.state.locations.map(this.renderListEl) }
                 </ul>

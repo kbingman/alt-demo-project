@@ -2,9 +2,12 @@ import React from 'react';
 import alt from './alt';
 import Locations from './components/locations.jsx';
 
-window.alt = alt;
+// loads the data that has already been rendered on the server
+// into the client instance
+alt.bootstrap(JSON.stringify(bootstrapData));
 
-console.log('render')
+// Renders the main react component
 React.render(
-  <Locations />, document.getElementById('container')
+  <Locations />,
+  document.getElementById('container')
 );
