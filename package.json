@@ -1,0 +1,48 @@
+{
+  "name": "Name",
+  "version": "",
+  "description": "",
+  "scripts": {
+    "build": "npm run build:js & npm run build:css",
+    "build:css": "node-sass --output-style compressed src/css -o public/css",
+    "build:js": "webpack --progress --colors",
+    "livereload": "livereload public",
+    "start": "babel-node server.js & npm run watch",
+    "test": "karma start",
+    "uglify": "uglifyjs --compress -- public/js/app.js > public/js/app.min.js",
+    "watch": "npm run watch:js & npm run watch:css",
+    "watch:css": "node-sass -w src/css -o public/css",
+    "watch:js": "webpack --progress --colors --watch --devtool inline-source-map"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.6.23",
+    "chai": "^3.0.0",
+    "css-loader": "^0.15.1",
+    "karma": "^0.12.37",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-mocha": "^0.2.0",
+    "karma-sinon": "^1.0.4",
+    "karma-sourcemap-loader": "^0.3.5",
+    "karma-spec-reporter": "0.0.19",
+    "karma-webpack": "^1.5.1",
+    "livereload": "^0.3.7",
+    "mocha": "^2.2.5",
+    "node-libs-browser": "^0.5.2",
+    "node-sass": "^3.2.0",
+    "sass-loader": "^1.0.2",
+    "serve": "^1.4.0",
+    "sinon": "^1.15.4",
+    "style-loader": "^0.12.3",
+    "uglifyjs": "^2.4.10",
+    "webpack": "^1.10.1"
+  },
+  "dependencies": {
+    "express": "^4.13.1",
+    "handlebars": "^3.0.3",
+    "node-jsx": "^0.13.3",
+    "react": "^0.13.3"
+  }
+}
