@@ -14,4 +14,4 @@ ONce they are installed, you can start the node server and build the client side
 npm start
 ```
   
-Then visit http://localhost:3002 and it should work.
+Then visit [http://localhost:3002](http://localhost:3002) and it should work.
