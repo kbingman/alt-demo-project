@@ -12,6 +12,7 @@ var Locations = React.createClass({
     },
 
     // Fired just before the component is mounted
+    // this should be fixed in 0.14
     componentWillMount() {
         // Checks for server side or client rendering
         // This is needed, because react expects a document element
@@ -21,6 +22,7 @@ var Locations = React.createClass({
     },
 
     // Fired just before the component is unmounted
+    // this should be fixed in 0.14
     componentWillUnmount() {
         if (ExecutionEnvironment.canUseDOM) {
             LocationStore.unlisten(this.onChange);
